@@ -64,7 +64,7 @@ const Header = () => {
 }
 
 const Nav = styled.nav`
-position: fixed;
+position: sticky;
 top: 0;
 left: 0;
 right: 0;
@@ -99,6 +99,21 @@ span {
  
 }
 `
+
+const Logo = styled.a`
+// padding: 0;
+width: 80px;
+// margin-top: 4px;
+// margin-left: 20px;
+max-height: 80px;
+font-size: 24px;
+display: flex;
+
+img {
+    displat:block;
+    width: 100%;
+}
+`;
 
 const NavMenuCenter = styled.div`
 flex:5;
@@ -181,20 +196,7 @@ color: green;
 }
 `
 
-const Logo = styled.a`
-// padding: 0;
-width: 80px;
-// margin-top: 4px;
-// margin-left: 20px;
-max-height: 70px;
-font-size: 24px;
-display: inline-block;
 
-img {
-    displat:block;
-    width: 100%;
-}
-`;
 // const NavMenu = styled.div`
 // align-items: center;
 // display: flex;

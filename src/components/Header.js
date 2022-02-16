@@ -21,8 +21,8 @@ const Header = () => {
         </div>
       </NavMenuCenter >
 
-      <NavMenuRight className='NavMenuRight'>
-        <div className='NavMenuRight-Links'>
+      <NavMenuRight className='nav-menu-right'>
+        <div className='nav-menu-right-links'>
           <a href="/">
             {/* <img src="/images/home-icon.svg" alt="" /> */}
             <span>HOME</span>
@@ -33,18 +33,18 @@ const Header = () => {
           </a>
 
         </div>
-        <div className='NavMenuRight-Icons'>
-          <div className='NavMenuRight-IconsItem'>
+        <div className='nav-menu-right-icons'>
+          <div className='nav-menu-right-icons-item'>
             <Person />
-            <span className='NavMenuRight-IconsCounter'>1</span>
+            <span className='nav-menu-right-icons-counter'>1</span>
           </div>
-          <div className='NavMenuRight-IconsItem'>
+          <div className='nav-menu-right-icons-item'>
             <Chat />
-            <span className='NavMenuRight-IconsCounter'>2</span>
+            <span className='nav-menu-right-icons-counter'>2</span>
           </div>
-          <div className='NavMenuRight-IconsItem'>
+          <div className='nav-menu-right-icons-item'>
             <Notifications />
-            <span className='NavMenuRight-IconsCounter'>1</span>
+            <span className='nav-menu-right-icons-counter'>1</span>
           </div>
         </div>
       </NavMenuRight>
@@ -153,7 +153,7 @@ color: green;
 
 // background-color: grey;
 
-.NavMenuRight-Links {
+.nav-menu-right-links {
   margin-right: 10px;
   font-size: 14px;
   cursor: pointer;
@@ -161,13 +161,13 @@ color: green;
     margin: 10px;;
   }
 }
-.NavMenuRight-Icons{
+.nav-menu-right-icons{
   display:flex;
   // align-items:center;
   // justify-content: center;
 
 }
-.NavMenuRight-IconsItem {
+.nav-menu-right-icons-item {
   margin-right: 15px;
   cursor: pointer;
   position:relative;
@@ -177,7 +177,7 @@ color: green;
 
 }
 
-.NavMenuRight-IconsCounter {
+.nav-menu-right-icons-counter {
   width: 15px;
   height: 15px;
   font-size: 15px;

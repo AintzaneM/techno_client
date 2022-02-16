@@ -13,4 +13,5 @@ export default Feed
 const Container = styled.div`
 flex: 5.5;
 
+
 `

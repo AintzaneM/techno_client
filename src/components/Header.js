@@ -102,10 +102,10 @@ span {
 
 const Logo = styled.a`
 // padding: 0;
-width: 80px;
+width: 60px;
 // margin-top: 4px;
 // margin-left: 20px;
-max-height: 80px;
+max-height: 60px;
 font-size: 24px;
 display: flex;
 

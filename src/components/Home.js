@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import Login from './Login';
+import {Person} from '@material-ui/icons';
 
 const Home = (props) => {
   return (
@@ -10,6 +11,7 @@ const Home = (props) => {
               {/* <img src="/images/home-icon.svg" alt="" /> */}
               <span>Login</span>
           </Link>
+          <Person/>
     </Container>
   )
 }

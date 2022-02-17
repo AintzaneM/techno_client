@@ -191,8 +191,6 @@ color: green;
   align-items: center;
   // text-align: center;
   justify-content: center;
-
-
 }
 `
 

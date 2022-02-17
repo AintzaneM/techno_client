@@ -24,7 +24,7 @@ const Sidebar = () => {
                 </li>
                 <li className='="sidebar-list-item'>
                     <RssFeed className='sidebar-icon'/>
-                    <span className='sidebar-list-item-text'>Try</span>
+                    <span className='sidebar-list-item-text'>Project development</span>
 
                 </li>
                 <li className='="sidebar-list-item'>
@@ -92,6 +92,10 @@ const Container = styled.div`
 flex: 3;
 height: calc(100vh - 50px);
 background-color: blue;
+position:sticky;
+top: 60px;
+
+
 overflow-y: scroll;
 ::-webkit-scrollbar {
     width:5px;
@@ -108,6 +112,7 @@ overflow-y: scroll;
 
 const SidebarWrapper = styled.div`
 padding: 20px;
+
 
 .sidebar-list{
     padding: 0;

@@ -1,16 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
 import {MoreVert} from "@material-ui/icons"
+import {Users} from "../../data"
 
-const Post = () => {
+const Post = (props) => {
+    // console.log(props.post.date)
+    const user = Users.filter((user)=> user.id===1)
+    
+  
+    console.log(user)
   return (
+      
     <Container className='post'>
         <PostWrapper>
             <div className='post-top'>
                 <div className='post-top-left'>
                     <img src="/images/profile.jpg" className='post-profile-img' alt=""></img>
-                    <span className='post-user-name'>JaneDoe</span>
-                    <span className='post-date'>5 min ago</span>
+                    <span className='post-user-name'>{Users.filter((user) => user.id === props.post?.userId)[0].username}</span>
+                    <span className='post-date'>{props.post.date}</span>
+                    {/* {console.log(post.post.date)} */}
 
                 </div>
                 <div className='post-top-right'>
@@ -18,7 +26,7 @@ const Post = () => {
                 </div>
             </div>
             <div className='post-center'>
-                <span className='post-text'>Hey its my first post</span>
+                <span className='post-text'>{props.post.desc}</span>
                 <img className="post-img" src="/images/download.jpeg" className='post-img' alt=""></img>
             </div>
 
@@ -27,11 +35,11 @@ const Post = () => {
                     
                     <img src="/images/like.png" className='post-like' alt=""></img>
                     <img src="/images/heart.png" className='post-heart' alt=""></img>
-                    <span className='post-like-counter'>32 people liked it</span>
+                    <span className='post-like-counter'>{props.post.like} people liked it</span>
 
                 </div>
                 <div className='post-bottom-right'>
-                    <span className='post-comment-text'>9 comment</span>
+                    <span className='post-comment-text'> {props.post.comment} comment</span>
                     
                 </div>
             </div>

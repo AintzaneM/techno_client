@@ -15,12 +15,9 @@ export default Friend
 
 
 const SidebarFriendList = styled.li`
-
 display: flex;
 align-items: center;
 margin-bottom: 15px;
-
-
 .sidebar-friend-img{
     width:32px;
     height: 32px;
@@ -29,7 +26,4 @@ margin-bottom: 15px;
     margin-right: 10px;
     
 }
-
-
-
 `

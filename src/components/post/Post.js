@@ -1,14 +1,14 @@
-import React from 'react'
-import styled from 'styled-components'
-import {MoreVert} from "@material-ui/icons"
-import {Users} from "../../data"
+import React from 'react';
+import styled from 'styled-components';
+import {MoreVert} from "@material-ui/icons";
+import {Users} from "../../data";
 
 const Post = (props) => {
     // console.log(props.post.date)
     const user = Users.filter((user)=> user.id===1)
     
   
-    console.log(user)
+    // console.log(user)
   return (
       
     <Container className='post'>

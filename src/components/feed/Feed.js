@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import Share from '../share/Share'
-import Post from '../post/Post'
-import { Posts } from '../../data'
+import React from 'react';
+import styled from 'styled-components';
+import Share from '../share/Share';
+import Post from '../post/Post';
+import { Posts } from '../../data';
 
 const Feed = () => {
   return (

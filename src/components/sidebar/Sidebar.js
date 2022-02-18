@@ -1,6 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import {RssFeed, ChatBubble, Group} from "@material-ui/icons"
+import React from 'react';
+import styled from 'styled-components';
+import {RssFeed, ChatBubble, Group} from "@material-ui/icons";
+import Friend from '../Friend/Friend';
+import { Users } from '../../data';
 
 const Sidebar = () => {
   return (
@@ -50,34 +52,11 @@ const Sidebar = () => {
             <hr/>
 
              <ul className='sidebar-friend-list'>
-                 <li className='sidebar-friend'>
-                     <img className='sidebar-friend-img' src='/images/profile.jpg' alt=""></img>
-                     <span className='sidebar-friend-name'>Jane Doe</span>
-                 </li>
-                 <li className='sidebar-friend'>
-                     <img className='sidebar-friend-img' src='/images/profile.jpg' alt=""></img>
-                     <span className='sidebar-friend-name'>Mary Doe</span>
-                 </li>
-                 <li className='sidebar-friend'>
-                     <img className='sidebar-friend-img' src='/images/profile.jpg' alt=""></img>
-                     <span className='sidebar-friend-name'>Mary Doe</span>
-                 </li>
-                 <li className='sidebar-friend'>
-                     <img className='sidebar-friend-img' src='/images/profile.jpg' alt=""></img>
-                     <span className='sidebar-friend-name'>Mary Doe</span>
-                 </li>
-                 <li className='sidebar-friend'>
-                     <img className='sidebar-friend-img' src='/images/profile.jpg' alt=""></img>
-                     <span className='sidebar-friend-name'>Mary Doe</span>
-                 </li>
-                 <li className='sidebar-friend'>
-                     <img className='sidebar-friend-img' src='/images/profile.jpg'alt=""></img>
-                     <span className='sidebar-friend-name'>Mary Doe</span>
-                 </li>
-                 <li className='sidebar-friend'>
-                     <img className='sidebar-friend-img' src='/images/profile.jpg' alt=""></img>
-                     <span className='sidebar-friend-name'>Mary Doe</span>
-                 </li>
+                {Users.map((user) => (
+                    <Friend key= {user.id} user={user}/>
+                ))}
+                 
+           
              </ul>
 
         </SidebarWrapper>
@@ -138,20 +117,6 @@ hr{
     margin:0;
     padding:0;
     list-style: none;
-}
-.sidebar-friend{
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-
-}
-.sidebar-friend-img{
-    width:32px;
-    height: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 10px;
-    
 }
 
 `

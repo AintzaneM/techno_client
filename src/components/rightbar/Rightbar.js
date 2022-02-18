@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
+import { Users } from '../../data';
+import Online from '../online/Online';
 
 const Rightbar = () => {
   return (
     <Container className='rightbar'>
-      Rightbar
       <RightbarWrapper className="rightbar-wrapper">
         <div className='rightbar-data-container'>
           <img className='rightbar-data-img' src="/images/gift.png" alt=""/>
@@ -14,57 +15,10 @@ const Rightbar = () => {
         <img className='rightbar-add-img' src="/images/ad.png" alt=""></img>
         <h4 className='rightbar-title'>Online Friends</h4>
         <ul className='rightbar-friend-list'>
-          <li className='rightbar-friend'>
-            <div className='rightbar-firend-img-container'>
-              <img className='rightbar-profile-img'src="/images/profile.jpg" alt=""></img>
-              <span className='rightbar-online-point'></span>
-            </div>
-            <span className='rightbar-username-text'>Jane Doe</span>
+          {Users.map((user) => (
+            <Online key = {user.id} user ={user} />
 
-          </li>
-
-          <li className='rightbar-friend'>
-            <div className='rightbar-firend-img-container'>
-              <img className='rightbar-profile-img'src="/images/profile.jpg" alt=""></img>
-              <span className='rightbar-online-point'></span>
-            </div>
-            <span className='rightbar-username-text'>Jane Doe</span>
-
-          </li>
-
-          <li className='rightbar-friend'>
-            <div className='rightbar-firend-img-container'>
-              <img className='rightbar-profile-img'src="/images/profile.jpg" alt=""></img>
-              <span className='rightbar-online-point'></span>
-            </div>
-            <span className='rightbar-username-text'>Jane Doe</span>
-
-          </li>
-
-          <li className='rightbar-friend'>
-            <div className='rightbar-firend-img-container'>
-              <img className='rightbar-profile-img'src="/images/profile.jpg" alt=""></img>
-              <span className='rightbar-online-point'></span>
-            </div>
-            <span className='rightbar-username-text'>Jane Doe</span>
-
-          </li>
-          <li className='rightbar-friend'>
-            <div className='rightbar-firend-img-container'>
-              <img className='rightbar-profile-img'src="/images/profile.jpg" alt=""></img>
-              <span className='rightbar-online-point'></span>
-            </div>
-            <span className='rightbar-username-text'>Jane Doe</span>
-
-          </li>
-          <li className='rightbar-friend'>
-            <div className='rightbar-firend-img-container'>
-              <img className='rightbar-profile-img'src="/images/profile.jpg" alt=""></img>
-              <span className='rightbar-online-point'></span>
-            </div>
-            <span className='rightbar-username-text'>Jane Doe</span>
-
-          </li>
+          ))}
         </ul>
 
 
@@ -111,6 +65,10 @@ align-items: center;
 }
 .rightbar-friend-list{
   height: calc(50vh - 50px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
   overflow-y: scroll;
 
 ::-webkit-scrollbar {
@@ -124,43 +82,5 @@ align-items: center;
 ::-webkit-scrollbar-thumb {
     background-color:grey;  
 }
-}
-.rightbar-friend-list{
-  margin: 0;
-  padding: 0;
-  list-style: none;
 
-}
-.rightbar-friend{
-  display:flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-.rightbar-firend-img-container{
-  margin-right: 10px; 
-  position: relative;
-
-}
-.rightbar-profile-img{
-  width: 40px;
-  height: 40px;
-  border-radius: 50px;
-  object-fit: cover;
-}
-
-.rightbar-online-point{
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: green;
-  position: absolute;
-  top: -2px;
-  right: 0;
-  border: 2px solid white;
-
-}
-.rightbar-username-text{
-  font-weight: bold;
-
-}
 `

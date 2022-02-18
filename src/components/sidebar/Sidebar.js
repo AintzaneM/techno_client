@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {RssFeed, ChatBubble, Group} from "@material-ui/icons";
-import Friend from '../Friend/Friend';
+import Friend from '../friend/Friend';
 import { Users } from '../../data';
 
 const Sidebar = () => {

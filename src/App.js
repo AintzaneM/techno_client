@@ -3,6 +3,7 @@ import './App.css';
 import Feed from './components/feed/Feed';
 import Header from './components/Header';
 import Home from './components/Home';
+import Profile from './components/Profile';
 import Login from './components/Login';
 import Sidebar from './components/sidebar/Sidebar';
 import Rightbar from './components/rightbar/Rightbar';
@@ -12,9 +13,11 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
+        {/* <Header /> */}
         {/* <Home/> */}
-        <Container className='home-container'>
+        {/* <Home/> */}
+        <Profile/>
+        {/* <Container className='home-container'>
             <Sidebar/>
             <Feed/>
             <Rightbar />
@@ -25,8 +28,8 @@ function App() {
           <Route exact path="/login"
             element={<Login /> }>
           </Route>
-          
-        </Routes>
+           */}
+        {/* </Routes> */}
 
       </Router>
 
@@ -37,8 +40,8 @@ function App() {
 
 export default App;
 
-const Container = styled.div`
-display:flex;
-width: 100%;
+// const Container = styled.div`
+// display:flex;
+// width: 100%;
 
-`
+// `

@@ -1,28 +1,29 @@
-import React from 'react'
+import React from 'react';
 import styled from "styled-components";
 import Login from './Login';
 import {Person} from '@material-ui/icons';
 import Rightbar from './rightbar/Rightbar';
-import Sidebar from './sidebar/Sidebar'
-import Feed from './feed/Feed'
+import Sidebar from './sidebar/Sidebar';
+import Feed from './feed/Feed';
 import Header from './Header';
 
 const Home = (props) => {
   return (
-    <Container>
-        Home
-          <Link href="/login">
-              {/* <img src="/images/home-icon.svg" alt="" /> */}
-              <span>Login</span>
-          </Link>
-          <Person/>
-          
-          
+    <>
+      <Header/>
+      <Container className='home-container'>
+            <Sidebar/>
+            <Feed/>
+            <Rightbar />
     </Container>
+    </>
+    
   )
 }
 
 const Container = styled.div`
+display: flex;
+width: 100%;
 // position: relative;
 // min-height: calc(100vh - 250px);
 // overflow-x: hidden;

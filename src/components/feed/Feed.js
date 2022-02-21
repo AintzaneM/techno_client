@@ -8,15 +8,10 @@ const Feed = () => {
   return (
     <Container className="feed">
       <FeedWrapper>
-        <Share/>
-        
+        <Share />
         {Posts.map((post) => (
-          
-          <Post key= {post.id} post={post}/>
-          
+          <Post key={post.id} post={post} />
         ))}
-        
-       
       </FeedWrapper>
     </Container>
   )
@@ -28,10 +23,7 @@ export default Feed
 const Container = styled.div`
 flex: 5.5;
 padding: 20px;
-
-
 `
-
 const FeedWrapper = styled.div`
 
 `

@@ -2,24 +2,113 @@ import React from 'react';
 import styled from 'styled-components';
 import { Users } from '../../data';
 import Online from '../online/Online';
+import Sidebar from '../sidebar/Sidebar';
 
-const Rightbar = () => {
-  return (
-    <Container className='rightbar'>
-      <RightbarWrapper className="rightbar-wrapper">
+const Rightbar = (props) => {
+  console.log(props)
+
+  const HomeRightbar = () => {
+    return (
+      <>
         <div className='rightbar-data-container'>
-          <img className='rightbar-data-img' src="/images/gift.png" alt=""/>
+          <img className='rightbar-data-img' src="/images/gift.png" alt="" />
           <span className='rightbar-data-text'><b>Doe</b> and <b>4 more friends </b> have Birthdays Projects</span>
-          
+
         </div>
         <img className='rightbar-add-img' src="/images/ad.png" alt=""></img>
         <h4 className='rightbar-title'>Online Friends</h4>
         <ul className='rightbar-friend-list'>
           {Users.map((user) => (
-            <Online key = {user.id} user ={user} />
+            <Online key={user.id} user={user} />
 
           ))}
         </ul>
+      </>
+    )
+
+  } 
+
+  const ProfileRightbar = () => {
+
+    return (
+      <>
+     <Container_ProfileRightbar>
+        <h4 className='profile-rightbar-title'>User info</h4>
+        <div className='profile-rightbar-info'>
+          <div className='profile-rightbar-info-item'>
+            <span className='profile-rightbar-info-key'>City: </span>
+            <span className='profile-rightbar-info-value'>Bcn</span>
+          </div>
+
+          <div className='profile-rightbar-info-item'>
+
+            <span className='profile-rightbar-info-key'>From: </span>
+            <span className='profile-rightbar-info-value'>Vgo</span>
+          </div>
+
+          <div className='profile-rightbar-info-item'>
+
+            <span className='profile-rightbar-info-key'>Relationship: </span>
+            <span className='profile-rightbar-info-value'>Single</span>
+          </div>
+        </div>
+
+        <h4 className='profile-rightbar-friends'>User friends</h4>
+        
+        <div className="followings-container">
+        <div className='profile-rightbar-followings'>
+          <div className='profile-rightbar-followings-item'>
+            <img className='profile-rightbar-followings-item-img' src="/images/profile.jpg" alt=""></img>
+            <span className='profile-rightbar-followings-item-name'>janee doe</span>
+
+          </div>
+
+        </div>
+        
+       
+        <div className='profile-rightbar-followings'>
+          <div className='profile-rightbar-followings-item'>
+            <img className='profile-rightbar-followings-item-img' src="/images/profile.jpg" alt=""></img>
+            <span className='profile-rightbar-followings-item-name'>janee doe</span>
+
+          </div>
+
+        </div>
+
+
+        <div className='profile-rightbar-followings'>
+          <div className='profile-rightbar-followings-item'>
+            <img className='profile-rightbar-followings-item-img' src="/images/profile.jpg" alt=""></img>
+            <span className='profile-rightbar-followings-item-name'>janee doe</span>
+
+          </div>
+
+        </div>
+
+        <div className='profile-rightbar-followings'>
+          <div className='profile-rightbar-followings-item'>
+            <img className='profile-rightbar-followings-item-img' src="/images/profile.jpg" alt=""></img>
+            <span className='profile-rightbar-followings-item-name'>janee doe</span>
+
+          </div>
+
+        </div>
+
+        </div>
+
+        </Container_ProfileRightbar>
+
+      </>
+    
+    )
+  }
+
+  return (
+    <Container className='rightbar'>
+      <RightbarWrapper className="rightbar-wrapper">
+        <ProfileRightbar/>
+        {/* <HomeRightbar/> */}
+        
 
 
       </RightbarWrapper>
@@ -81,6 +170,61 @@ align-items: center;
 }
 ::-webkit-scrollbar-thumb {
     background-color:grey;  
+}
+
+
+
+`
+
+const Container_ProfileRightbar = styled.div`
+
+//  font-size: 18px;
+//   font-weight: 300;
+//   color:red;
+.profile-rightbar-title {
+  font-size: 18px;
+  font-weight: 300;
+  color:red;
+  margin-bottom: 10px;
+}
+.profile-rightbar-info{
+  margin-bottom: 30px;
+}
+
+.profile-rightbar-info-item{
+  margin-bottom: 10px;
+}
+
+.profile-rightbar-info-key{
+  font-weight: 500;
+  margin-right: 15px;
+  color: #555;
+}
+
+.profile-rightbar-info-value{
+  font-weight: 300;
+}
+
+
+.followings-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+
+.profile-rightbar-followings-item{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.profile-rightbar-followings-item-img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 `

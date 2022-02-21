@@ -1,13 +1,14 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
-import Feed from './components/feed/Feed';
-import Header from './components/Header';
+// import Feed from './components/feed/Feed';
+// import Header from './components/Header';
 import Home from './components/Home';
-import Profile from './components/Profile';
-import Login from './components/Login';
-import Sidebar from './components/sidebar/Sidebar';
-import Rightbar from './components/rightbar/Rightbar';
-import styled from 'styled-components'
+// import Profile from './components/Profile';
+// import Login from './components/Login';
+// import Sidebar from './components/sidebar/Sidebar';
+// import Rightbar from './components/rightbar/Rightbar';
+// import styled from 'styled-components'
+// import Register from './components/Register';
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
       <Router>
         {/* <Header /> */}
         {/* <Home/> */}
-        {/* <Home/> */}
-        <Profile/>
+        <Home/>
+        {/* <Login/> */}
+        {/* <Register></Register> */}
         {/* <Container className='home-container'>
             <Sidebar/>
             <Feed/>

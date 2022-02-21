@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import {PermMedia, Label, Room, EmojiEmotions} from "@material-ui/icons"
+import React from 'react';
+import styled from 'styled-components';
+import {PermMedia, Label, Room, EmojiEmotions} from "@material-ui/icons";
 
 const Share = () => {
   return (

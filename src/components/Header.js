@@ -1,14 +1,14 @@
-import React from 'react'
-import styled from 'styled-components'
-import {Search, Chat, Notifications, Person} from "@material-ui/icons"
-import { red } from '@material-ui/core/colors'
+import React from 'react';
+import styled from 'styled-components';
+import {Search, Chat, Notifications, Person} from "@material-ui/icons";
+import { red } from '@material-ui/core/colors';
 
 const Header = () => {
   return (
     <Nav>
       <NavMenuLeft className='NavMenuLeft'>
         <Logo>
-          <a href="/" alt="" />
+          {/* <a href="/" alt="" /> */}
           <img src="/images/profile.jpg" alt="" />
         </Logo>
         <span>Techno-test</span>

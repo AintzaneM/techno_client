@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Users } from '../../data';
 import Online from '../online/Online';
-import Sidebar from '../sidebar/Sidebar';
+// import Sidebar from '../sidebar/Sidebar';
 
-const Rightbar = (props) => {
-  console.log(props)
+const Rightbar = ({profile}) => {
+  // console.log(props.profile)
 
   const HomeRightbar = () => {
     return (
@@ -32,7 +32,7 @@ const Rightbar = (props) => {
 
     return (
       <>
-     <Container_ProfileRightbar>
+     <ContainerProfileRightbar>
         <h4 className='profile-rightbar-title'>User info</h4>
         <div className='profile-rightbar-info'>
           <div className='profile-rightbar-info-item'>
@@ -96,7 +96,7 @@ const Rightbar = (props) => {
 
         </div>
 
-        </Container_ProfileRightbar>
+        </ContainerProfileRightbar>
 
       </>
     
@@ -106,7 +106,7 @@ const Rightbar = (props) => {
   return (
     <Container className='rightbar'>
       <RightbarWrapper className="rightbar-wrapper">
-        <ProfileRightbar/>
+        {profile ? <ProfileRightbar/> :  <HomeRightbar/>  }  
         {/* <HomeRightbar/> */}
         
 
@@ -176,7 +176,7 @@ align-items: center;
 
 `
 
-const Container_ProfileRightbar = styled.div`
+const ContainerProfileRightbar = styled.div`
 
 //  font-size: 18px;
 //   font-weight: 300;

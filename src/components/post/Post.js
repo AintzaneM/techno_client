@@ -2,15 +2,30 @@ import React from 'react';
 import styled from 'styled-components';
 import {MoreVert} from "@material-ui/icons";
 import {Users} from "../../data";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from "axios";
+import {format} from "timeago.js";
 
 const Post = (props) => {
     // console.log(props.post.date)
-    const user = Users.filter((user)=> user.id===1)
-    console.log(props.post.like)
-    const [like, setLike] = useState(props.post.like)
+    // const user = Users.filter((user)=> user.id===1)
+    // console.log(props.post.like)
+    const [like, setLike] = useState(props.post.likes.length)
     const [isLiked, setIsLiked] = useState(false)
+    const [user, setUser] = useState({})
+    
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
+
+    useEffect(() => {
+        const fetchUser = async() => {
+          const res = await axios.get(`/${props.post.userId}`)
+          setUser(res.data)
+    
+        }
+        
+        fetchUser()
+      }, [props.post.userId])
 
     const likeHandler = () => {
         setLike(isLiked ? like-1 : like+1)
@@ -25,9 +40,9 @@ const Post = (props) => {
         <PostWrapper>
             <div className='post-top'>
                 <div className='post-top-left'>
-                    <img src="/images/profile.jpg" className='post-profile-img' alt=""></img>
-                    <span className='post-user-name'>{Users.filter((user) => user.id === props.post?.userId)[0].username}</span>
-                    <span className='post-date'>{props.post.date}</span>
+                    <img src={user.profilePicture || PF + "noAvatar.png"} className='post-profile-img' alt=""></img>
+                    <span className='post-user-name'>{user.username}</span>
+                    <span className='post-date'>{format(props.post.createdAt)}</span>
                     {/* {console.log(post.post.date)} */}
 
                 </div>
@@ -37,7 +52,7 @@ const Post = (props) => {
             </div>
             <div className='post-center'>
                 <span className='post-text'>{props.post.desc}</span>
-                <img className="post-img" src={PF + props.post.photo} className='post-img' alt=""></img>
+                <img className="post-img" src={PF + props.post.img} className='post-img' alt=""></img>
             {/* {console.log(props.post.photo)} */}
             </div>
 

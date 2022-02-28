@@ -4,10 +4,11 @@ import { Users } from '../../data';
 import Online from '../online/Online';
 // import Sidebar from '../sidebar/Sidebar';
 
-const Rightbar = ({profile}) => {
+const Rightbar = ({user}) => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   // console.log(props.profile)
+  // console.log(user)
 
   const HomeRightbar = () => {
     return (
@@ -39,19 +40,19 @@ const Rightbar = ({profile}) => {
         <div className='profile-rightbar-info'>
           <div className='profile-rightbar-info-item'>
             <span className='profile-rightbar-info-key'>City: </span>
-            <span className='profile-rightbar-info-value'>Bcn</span>
+            <span className='profile-rightbar-info-value'>{user.city}</span>
           </div>
 
           <div className='profile-rightbar-info-item'>
 
             <span className='profile-rightbar-info-key'>From: </span>
-            <span className='profile-rightbar-info-value'>Vgo</span>
+            <span className='profile-rightbar-info-value'>{user.from}</span>
           </div>
 
           <div className='profile-rightbar-info-item'>
 
             <span className='profile-rightbar-info-key'>Relationship: </span>
-            <span className='profile-rightbar-info-value'>Single</span>
+            <span className='profile-rightbar-info-value'>{user.relationship ===1 ? "Single" : user.relationship ===2 ? "Married" : "Empty"}</span>
           </div>
         </div>
 
@@ -108,7 +109,7 @@ const Rightbar = ({profile}) => {
   return (
     <Container className='rightbar'>
       <RightbarWrapper className="rightbar-wrapper">
-        {profile ? <ProfileRightbar/> :  <HomeRightbar/>  }  
+        {user ? <ProfileRightbar/> :  <HomeRightbar/>  }  
         {/* <HomeRightbar/> */}
         
 

@@ -5,6 +5,7 @@ import {Users} from "../../data";
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import {format} from "timeago.js";
+import { Link } from 'react-router-dom';
 
 const Post = (props) => {
     // console.log(props.post.date)
@@ -19,7 +20,7 @@ const Post = (props) => {
 
     useEffect(() => {
         const fetchUser = async() => {
-          const res = await axios.get(`/${props.post.userId}`)
+          const res = await axios.get(`/users?userId=${props.post.userId}`)
           setUser(res.data)
     
         }
@@ -40,7 +41,7 @@ const Post = (props) => {
         <PostWrapper>
             <div className='post-top'>
                 <div className='post-top-left'>
-                    <img src={user.profilePicture || PF + "noAvatar.png"} className='post-profile-img' alt=""></img>
+                    <Link to={`profile/${user.username}`}><img src={user.profilePicture || PF + "noAvatar.png"} className='post-profile-img' alt=""></img></Link>
                     <span className='post-user-name'>{user.username}</span>
                     <span className='post-date'>{format(props.post.createdAt)}</span>
                     {/* {console.log(post.post.date)} */}

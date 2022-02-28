@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from "styled-components";
 
 
 const Login = () => {
+  const email = useRef();
+  const password = useRef();
+
+  const handleClick = (event) => {
+    event.preventDefault()
+    console.log(email)
+  }
   return (
     <Container className='login-container'>
       <LoginWrapper className="login-wrapper">
@@ -12,13 +19,13 @@ const Login = () => {
         </div>
 
         <div className='login-right'>
-          <div className='login-box'>
-            <input className='input-login' placeholder='email'></input>
-            <input className='input-login' placeholder='password'></input>
+          <form className='login-box' onSubmit={handleClick}>
+            <input className='input-login' type="email" required placeholder='email'ref={email}></input>
+            <input className='input-login' type="password" placeholder='password' required  minLength="6" ref={password}></input>
             <button className='button-login'>Login</button>
             <span className='login-forgot'>Forgot password?</span>
             <button className='button-register'>Create an account</button>
-          </div>
+          </form>
 
         </div>
       </LoginWrapper>

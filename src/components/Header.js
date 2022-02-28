@@ -2,16 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import {Search, Chat, Notifications, Person} from "@material-ui/icons";
 import { red } from '@material-ui/core/colors';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <Nav>
       <NavMenuLeft className='NavMenuLeft'>
+      
         <Logo>
           {/* <a href="/" alt="" /> */}
           <img src="/images/profile.jpg" alt="" />
         </Logo>
+        <Link to="/" style = {{textDecoration:"none"}}>
         <span>Techno-test</span>
+        </Link>
       </NavMenuLeft>
 
       <NavMenuCenter  className='NavMenuCenter'>
@@ -48,7 +52,7 @@ const Header = () => {
           </div>
         </div>
       </NavMenuRight>
-      <img src="/images/profile.jpg" className='Nav-ImageProfile' />
+      <img src="/images/profile.jpg" className='Nav-ImageProfile' alt=""/>
 
       {/* <SignOut>
                 signout */}

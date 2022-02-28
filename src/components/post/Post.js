@@ -10,6 +10,7 @@ const Post = (props) => {
     console.log(props.post.like)
     const [like, setLike] = useState(props.post.like)
     const [isLiked, setIsLiked] = useState(false)
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
     const likeHandler = () => {
         setLike(isLiked ? like-1 : like+1)
@@ -36,14 +37,15 @@ const Post = (props) => {
             </div>
             <div className='post-center'>
                 <span className='post-text'>{props.post.desc}</span>
-                <img className="post-img" src="/images/download.jpeg" className='post-img' alt=""></img>
+                <img className="post-img" src={PF + props.post.photo} className='post-img' alt=""></img>
+            {/* {console.log(props.post.photo)} */}
             </div>
 
             <div className='post-bottom'>
                 <div className='post-bottom-left'>
                     
-                    <img src="/images/like.png" className='post-like' onClick= {likeHandler} alt=""></img>
-                    <img src="/images/heart.png" className='post-heart' onClick= {likeHandler} alt=""></img>
+                    <img src={`${PF}like.png`} className='post-like' onClick= {likeHandler} alt=""></img>
+                    <img src={`${PF}heart.png`} className='post-heart' onClick= {likeHandler} alt=""></img>
                     <span className='post-like-counter'>{like} people liked it</span>
 
                 </div>

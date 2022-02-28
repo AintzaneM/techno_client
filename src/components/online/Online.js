@@ -4,12 +4,13 @@ import styled from 'styled-components';
 
 
 const Online = (props) => {
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   // console.log(props.user.username)
 
   return (
     <RightbarList className='rightbar-friend'>
       <div className='rightbar-firend-img-container'>
-        <img className='rightbar-profile-img' src="/images/profile.jpg" alt=""></img>
+        <img className='rightbar-profile-img' src={PF + props.user.profilePicture} alt=""></img>
         <span className='rightbar-online-point'></span>
       </div>
       <span className='rightbar-username-text'>{props.user.username}</span>

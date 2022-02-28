@@ -2,10 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Friend = (props) => {
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     console.log(props.user.username)
     return (
         <SidebarFriendList className='sidebar-friend'>
-            <img className='sidebar-friend-img' src='/images/profile.jpg' alt=""></img>
+            <img className='sidebar-friend-img' src={PF + props.user.profilePicture} alt=""></img>
             <span className='sidebar-friend-name'>{props.user.username}</span>
         </SidebarFriendList>
     )

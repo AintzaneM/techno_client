@@ -5,6 +5,8 @@ import Online from '../online/Online';
 // import Sidebar from '../sidebar/Sidebar';
 
 const Rightbar = ({profile}) => {
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
   // console.log(props.profile)
 
   const HomeRightbar = () => {
@@ -58,7 +60,7 @@ const Rightbar = ({profile}) => {
         <div className="followings-container">
         <div className='profile-rightbar-followings'>
           <div className='profile-rightbar-followings-item'>
-            <img className='profile-rightbar-followings-item-img' src="/images/profile.jpg" alt=""></img>
+            <img className='profile-rightbar-followings-item-img' src={`${PF}profile.jpg`} alt=""></img>
             <span className='profile-rightbar-followings-item-name'>janee doe</span>
 
           </div>
@@ -68,7 +70,7 @@ const Rightbar = ({profile}) => {
        
         <div className='profile-rightbar-followings'>
           <div className='profile-rightbar-followings-item'>
-            <img className='profile-rightbar-followings-item-img' src="/images/profile.jpg" alt=""></img>
+            <img className='profile-rightbar-followings-item-img' src={`${PF}profile.jpg`} alt=""></img>
             <span className='profile-rightbar-followings-item-name'>janee doe</span>
 
           </div>
@@ -78,7 +80,7 @@ const Rightbar = ({profile}) => {
 
         <div className='profile-rightbar-followings'>
           <div className='profile-rightbar-followings-item'>
-            <img className='profile-rightbar-followings-item-img' src="/images/profile.jpg" alt=""></img>
+            <img className='profile-rightbar-followings-item-img' src={`${PF}profile.jpg`} alt=""></img>
             <span className='profile-rightbar-followings-item-name'>janee doe</span>
 
           </div>
@@ -87,7 +89,7 @@ const Rightbar = ({profile}) => {
 
         <div className='profile-rightbar-followings'>
           <div className='profile-rightbar-followings-item'>
-            <img className='profile-rightbar-followings-item-img' src="/images/profile.jpg" alt=""></img>
+            <img className='profile-rightbar-followings-item-img' src={`${PF}profile.jpg`} alt=""></img>
             <span className='profile-rightbar-followings-item-name'>janee doe</span>
 
           </div>

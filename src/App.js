@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
 
 // import Feed from './components/feed/Feed';
@@ -10,22 +10,26 @@ import Login from './components/Login';
 // import Rightbar from './components/rightbar/Rightbar';
 // import styled from 'styled-components'
 import Register from './components/Register';
+import { useContext } from 'react';
+import { AuthContext } from './context/AuthContext';
 
 function App() {
+  const {user} = useContext(AuthContext)
   return (
     <div className="App">
       <Router>
         <Routes>
 
         <Route exact path="/"
-            element={<Home /> }>
-          </Route>
+         
+            element={user ? <Home /> : <Register/> }>
+        </Route>
         
           <Route exact path="/login"
-            element={<Login /> }>
+            element={user ? <Navigate to="/"/> : <Login /> }>
           </Route>
           <Route exact path="/register"
-            element={<Register /> }>
+            element={user ? <Navigate to="/"/> : <Register /> }>
           </Route>
           <Route exact path="/profile/:username"
             element={<Profile /> }>

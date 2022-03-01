@@ -29,9 +29,16 @@ const Login = () => {
           <form className='login-box' onSubmit={handleClick}>
             <input className='input-login' type="email" required placeholder='email'ref={email}></input>
             <input className='input-login' type="password" placeholder='password' required  minLength="6" ref={password}></input>
-            <button className='button-login'>{isFetching ? <CircularProgress style = {{color:"white", size:"20px"}}/> : "Log in"}</button>
+            <button className='button-login' 
+            type="submit" 
+            disabled={isFetching} >
+              {isFetching ? <CircularProgress style = {{color:"white", size:"5px"}}/> : "Log in"}
+            </button>
             <span className='login-forgot'>Forgot password?</span>
-            <button className='button-register'>Create an account</button>
+            <button className='button-register'>
+            {isFetching ? <CircularProgress style = {{color:"white", size:"15px"}}/> :
+              "Create an account"}</button>
+            
           </form>
 
         </div>
@@ -111,6 +118,10 @@ background-color: yellow;
   font-wight: 500;
   cursor: pointer;
 
+}
+
+.button-login:disabled{
+  cursor: not-allowed
 }
 
 .login-forgot{

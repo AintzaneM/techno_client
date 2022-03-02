@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import {MoreVert} from "@material-ui/icons";
 import {Users} from "../../data";
@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import axios from "axios";
 import {format} from "timeago.js";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 
 const Post = (props) => {
     // console.log(props.post.date)
@@ -14,10 +15,13 @@ const Post = (props) => {
     const [like, setLike] = useState(props.post.likes.length)
     const [isLiked, setIsLiked] = useState(false)
     const [user, setUser] = useState({})
-    
+    const {user: currentUser} = useContext(AuthContext)
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
-
+    useEffect(() => {
+        setIsLiked(props.post.likes.includes(currentUser._id))
+    },[currentUser._id, props.post.likes])
+    
     useEffect(() => {
         const fetchUser = async() => {
           const res = await axios.get(`/users?userId=${props.post.userId}`)
@@ -29,6 +33,12 @@ const Post = (props) => {
       }, [props.post.userId])
 
     const likeHandler = () => {
+        try {
+            axios.put("/posts/"+props.post._id+"/like", {userId: currentUser._id})
+
+        }catch(error) {
+
+        }
         setLike(isLiked ? like-1 : like+1)
         setIsLiked(!isLiked)
     }
@@ -41,7 +51,7 @@ const Post = (props) => {
         <PostWrapper>
             <div className='post-top'>
                 <div className='post-top-left'>
-                    <Link to={`profile/${user.username}`}><img src={user.profilePicture || PF + "noAvatar.png"} className='post-profile-img' alt=""></img></Link>
+                    <Link to={`profile/${user.username}`}><img src={ user.profilePicture ? PF+ user.profilePicture : PF + "noAvatar.png"} className='post-profile-img' alt=""></img></Link>
                     <span className='post-user-name'>{user.username}</span>
                     <span className='post-date'>{format(props.post.createdAt)}</span>
                     {/* {console.log(post.post.date)} */}

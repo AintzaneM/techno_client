@@ -3,8 +3,12 @@ import styled from 'styled-components';
 import {Search, Chat, Notifications, Person} from "@material-ui/icons";
 import { red } from '@material-ui/core/colors';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import {AuthContext} from "../context/AuthContext"
 
 const Header = () => {
+  const {user} = useContext(AuthContext)
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER
   return (
     <Nav>
       <NavMenuLeft className='NavMenuLeft'>
@@ -52,8 +56,9 @@ const Header = () => {
           </div>
         </div>
       </NavMenuRight>
-      <img src="/images/profile.jpg" className='Nav-ImageProfile' alt=""/>
-
+      <Link to={`/profile/${user.username}`}>
+        <img src={user.profilePicture ? PF + user.profilePicture : PF + "/noAvatar.png"} className='Nav-ImageProfile' alt=""/>
+      </Link>
       {/* <SignOut>
                 signout */}
       {/* <UserImg src={userPhoto} alt={userName} />

@@ -10,19 +10,49 @@ const Share = () => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER
     const desc = useRef()
     const [file, setFile] = useState(null)
+  
 
     const submitHandler = async(event) => {
         event.preventDefault()
         const newPost = {
             userId: user._id,
-            desc: desc.current.value
-
+            desc: desc.current.value,
+            
         }
+
+        console.log("newPost,", newPost)
+
+        console.log(newPost)
+        if(file){
+            console.log("file",file)
+            const data= new FormData();
+            console.log("dataa",data)
+            // const fileName = Date.now() + file.name;
+            console.log(file.name)
+            // console.log("fileName",fileName)
+            data.append("name", file.name);
+            data.append("img", file[0])
+            // data.append("name", filename);
+            newPost.img = file.name;
+            console.log(newPost, "new post")
+       
+        try {
+            await axios.post("/upload", data)
+            console.log(data, "dataaa")
+ 
+         }catch(error){
+             console.log(error)
+            }
+        } 
         try {
            await axios.post("/posts", newPost)
+        //    window.location.reload()
+           console.log(newPost, "newPost")
 
         }catch(error){}
     }
+
+    
   return (
     <Container className='share'>
         hey its share

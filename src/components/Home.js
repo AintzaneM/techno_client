@@ -1,19 +1,19 @@
 import React from 'react';
 import styled from "styled-components";
-import Login from './Login';
-import {Person} from '@material-ui/icons';
+// import Login from './Login';
+// import {Person} from '@material-ui/icons';
 import Rightbar from './rightbar/Rightbar';
 import Sidebar from './sidebar/Sidebar';
 import Feed from './feed/Feed';
 import Header from './Header';
 
-const Home = (props) => {
+const Home = () => {
   return (
     <>
       <Header/>
       <Container className='home-container'>
             <Sidebar/>
-            <Feed/>
+            <Feed />
             <Rightbar />
     </Container>
     </>

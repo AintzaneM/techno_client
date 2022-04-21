@@ -6,36 +6,46 @@ import axios from 'axios';
 import { AuthContext } from '../../context/AuthContext';
 // import { Posts } from '../../data';
 
-const Feed = ({username}) => {
-  console.log(username)
+export default function Feed({ username }) {
+  console.log("usernameefeed",username)
+  const [posts, setPosts] = useState([]);
+  const { user } = useContext(AuthContext);
 
-  const [posts, setPosts] = useState([])
-  const {user} = useContext(AuthContext)
+  // console.log("ussserr",user._id)
+  // console.log(user.username)
 
   useEffect(() => {
-    const fetchPosts = async() => {
-      const res =  username 
-      ? await axios.get("/posts/profile/" + username) 
-      : await axios.get("posts/timeline/" + user._id)
-      setPosts(res.data)
-
-    }
+    console.log("feed rendered")
     
+    const fetchPosts = async() => {
+ 
+      const res = username
+      // console.log("reeees",res)
+        ? await axios.get("/posts/profile/" + username)
+        : await axios.get("posts/timeline/" + user._id);
+      setPosts(
+        res.data.sort((p1, p2) => {
+          return new Date(p2.createdAt) - new Date(p1.createdAt);
+        })
+      );
+    };
     fetchPosts()
-  }, [username, user._id])
+  }, [username, user._id]);
+
   return (
     <Container className="feed">
-      <FeedWrapper>
-        <Share />
+      <FeedWrapper className="feedWrapper">
+        {(!username || username === user.username) && <Share />}
+        {console.log("possts",posts)}
         {posts.map((post) => (
+         
           <Post key={post._id} post={post} />
+          
         ))}
       </FeedWrapper>
     </Container>
-  )
+  );
 }
-
-export default Feed
 
 
 const Container = styled.div`

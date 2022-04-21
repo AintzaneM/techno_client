@@ -10,13 +10,13 @@ const INITIAL_STATE = {
         profilePicture:"",
         coverPicture:"",
         followers: [],
-        followings: [
-            
-        ]
+        followings: [],
     },
     isFetching: false,
     error: false
 };
+
+
 
 export const AuthContext = createContext(INITIAL_STATE);
 
